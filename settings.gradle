@@ -1,0 +1,2 @@
+rootProject.name='Ktchism'
+include ':sample-app'
