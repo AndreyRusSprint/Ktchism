@@ -1,6 +1,5 @@
-package ktchism
+package ktchism.interactor
 
-import ktchism.interactor.UseCase
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
