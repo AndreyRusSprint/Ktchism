@@ -1,10 +1,11 @@
 package ktchism.mapper
 
+import ktchism.UnitTest
 import ktchism.exception.Failure
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-abstract class ExceptionMapperTest {
+abstract class ExceptionMapperTest : UnitTest() {
 
     protected abstract val mapper: ExceptionMapper
 
