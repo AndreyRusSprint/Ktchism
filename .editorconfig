@@ -11,3 +11,6 @@ trim_trailing_whitespace = true
 indent_size = 4
 max_line_length = 120
 insert_final_newline = true
+# required for ktlint
+# noinspection EditorConfigKeyCorrectness
+disabled_rules = no-wildcard-imports,import-ordering
