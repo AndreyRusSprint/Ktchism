@@ -32,6 +32,8 @@ dependencies {
     implementation deps.appCompat
 
     implementation deps.rxJava
+    implementation deps.rxKotlin
+    implementation deps.rxAndroid
 
     testImplementation deps.jUnit
     testImplementation deps.mockito
