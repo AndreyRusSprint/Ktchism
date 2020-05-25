@@ -7,5 +7,5 @@ sealed class Failure : Exception() {
     object ServerError : Failure()
     object UnexpectedError : Failure()
 
-    abstract class FeatureFailure: Failure()
+    abstract class FeatureFailure : Failure()
 }
