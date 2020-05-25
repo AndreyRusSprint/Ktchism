@@ -1,4 +1,4 @@
-package com.absurdpalsy.ktchism_rx.domain
+package com.absurdpalsy.ktchism_rx.domain.interactor
 
 abstract class UseCase<out Result, in Params> {
 
