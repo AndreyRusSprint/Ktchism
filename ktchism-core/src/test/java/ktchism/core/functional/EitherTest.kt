@@ -1,10 +1,9 @@
-package ktchism.functional
+package ktchism.core.functional
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.verifyZeroInteractions
 import ktchism.UnitTest
-import ktchism.exception.Failure
 import org.junit.Assert.*
 import org.junit.Test
 

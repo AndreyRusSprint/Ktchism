@@ -1,4 +1,4 @@
-package ktchism.interactor
+package ktchism.core.interactor
 
 abstract class UseCase<out Result, in Params> where Result : Any {
 

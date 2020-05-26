@@ -1,7 +1,7 @@
-package ktchism.mapper
+package ktchism.core.mapper
 
 import ktchism.UnitTest
-import ktchism.exception.Failure
+import ktchism.core.exception.Failure
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

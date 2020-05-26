@@ -1,8 +1,8 @@
-package ktchism.functional
+package ktchism.core.functional
 
-import ktchism.functional.Either.Companion.right
-import ktchism.functional.Either.Left
-import ktchism.functional.Either.Right
+import ktchism.core.functional.Either.Companion.right
+import ktchism.core.functional.Either.Left
+import ktchism.core.functional.Either.Right
 
 /**
  * Represents a value of one of two possible types (a disjoint union).

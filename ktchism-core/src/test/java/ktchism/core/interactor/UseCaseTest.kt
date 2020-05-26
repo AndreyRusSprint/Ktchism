@@ -1,4 +1,4 @@
-package ktchism.interactor
+package ktchism.core.interactor
 
 import ktchism.UnitTest
 import org.junit.Assert.assertEquals
