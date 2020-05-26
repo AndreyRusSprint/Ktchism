@@ -4,7 +4,8 @@ import ktchism.UnitTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-abstract class UseCaseTest<Result, Params> : UnitTest() {
+abstract class UseCaseTest<Result, Params> : UnitTest()
+    where Result : Any {
 
     protected abstract val useCase: UseCase<Result, Params>
 

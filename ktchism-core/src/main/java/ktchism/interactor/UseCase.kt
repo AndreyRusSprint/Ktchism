@@ -1,8 +1,10 @@
 package ktchism.interactor
 
-abstract class UseCase<out Result, in Params> {
+abstract class UseCase<out Result, in Params> where Result : Any {
 
-    abstract operator fun invoke(params: Params): Result
+    operator fun invoke(params: Params): Result = constructResult(params)
+
+    protected abstract fun constructResult(params: Params): Result
 
     class None
 }
