@@ -12,6 +12,3 @@ dependencies {
     testImplementation deps.mockito
     testImplementation deps.mockitoKotlin
 }
-
-sourceCompatibility = "7"
-targetCompatibility = "7"
