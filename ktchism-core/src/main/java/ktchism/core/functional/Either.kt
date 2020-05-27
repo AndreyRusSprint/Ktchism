@@ -111,4 +111,3 @@ fun <L, R> Either<L, R>.getOrElse(defaultValue: R): R =
         is Left -> defaultValue
         is Right -> value
     }
-
