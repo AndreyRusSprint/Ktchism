@@ -1,0 +1,16 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.kotlinStdLib
+
+    implementation deps.rxJava
+    implementation deps.rxKotlin
+
+    implementation project(':ktchism-core')
+
+    testImplementation deps.jUnit
+    testImplementation deps.mockito
+    testImplementation deps.mockitoKotlin
+}
