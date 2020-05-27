@@ -5,7 +5,7 @@ import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
-import ktchism.functional.Either
+import ktchism.core.functional.Either
 
 fun <L, R> Observable<Either<L, R>>.foldSubscribe(
     ifLeft: (L) -> Unit,

@@ -5,8 +5,8 @@ package ktchism.rx
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.Single
-import ktchism.exception.Failure
-import ktchism.functional.Either
+import ktchism.core.exception.Failure
+import ktchism.core.functional.Either
 
 fun <T, E : Failure> Observable<T>.toEither(
     exceptionMapper: (Throwable) -> E

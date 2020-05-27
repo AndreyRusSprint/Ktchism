@@ -3,7 +3,7 @@ package ktchism.rx
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.Single
-import ktchism.functional.*
+import ktchism.core.functional.*
 
 fun <T, L, R> Observable<Either<L, R>>.flatMapEither(
     fn: (R) -> Either<L, T>
