@@ -1,4 +1,4 @@
-package ktchism.exception
+package ktchism.core.exception
 
 sealed class Failure {
     object NetworkConnection : Failure()

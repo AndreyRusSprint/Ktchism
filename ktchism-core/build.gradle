@@ -5,9 +5,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation deps.kotlinStdLib
 
-    implementation deps.rxJava
-    implementation deps.rxKotlin
-
     testImplementation deps.jUnit
     testImplementation deps.mockito
     testImplementation deps.mockitoKotlin
