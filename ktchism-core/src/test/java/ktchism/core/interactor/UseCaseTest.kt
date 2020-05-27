@@ -1,11 +1,9 @@
 package ktchism.core.interactor
 
-import ktchism.UnitTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-abstract class UseCaseTest<Result, Params> : UnitTest()
-    where Result : Any {
+abstract class UseCaseTest<Result, Params> where Result : Any {
 
     protected abstract val useCase: UseCase<Result, Params>
 

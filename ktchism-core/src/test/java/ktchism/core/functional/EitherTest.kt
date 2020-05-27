@@ -3,11 +3,10 @@ package ktchism.core.functional
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.verifyZeroInteractions
-import ktchism.UnitTest
 import org.junit.Assert.*
 import org.junit.Test
 
-class EitherTest : UnitTest() {
+class EitherTest {
 
     @Test
     fun `Either Left - return correct type`() {
