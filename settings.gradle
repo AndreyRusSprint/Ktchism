@@ -1,3 +1,4 @@
 rootProject.name='Ktchism'
 include ':sample-app'
 include ':ktchism-core'
+include ':ktchism-rx'
