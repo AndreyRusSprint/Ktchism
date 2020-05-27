@@ -60,19 +60,22 @@ fun <T, L, R> Flowable<Either<L, R>>.mapLeftEither(
 }
 
 fun <T, E, L, R> Observable<Either<L, R>>.bimapEither(
-    fnL: (L) -> E, fnR: (R) -> T
+    fnL: (L) -> E,
+    fnR: (R) -> T
 ): Observable<Either<E, T>> = this.map {
     it.bimap(fnL, fnR)
 }
 
 fun <T, E, L, R> Single<Either<L, R>>.bimapEither(
-    fnL: (L) -> E, fnR: (R) -> T
+    fnL: (L) -> E,
+    fnR: (R) -> T
 ): Single<Either<E, T>> = this.map {
     it.bimap(fnL, fnR)
 }
 
 fun <T, E, L, R> Flowable<Either<L, R>>.bimapEither(
-    fnL: (L) -> E, fnR: (R) -> T
+    fnL: (L) -> E,
+    fnR: (R) -> T
 ): Flowable<Either<E, T>> = this.map {
     it.bimap(fnL, fnR)
 }
