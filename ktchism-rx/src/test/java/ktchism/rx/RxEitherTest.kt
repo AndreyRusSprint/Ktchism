@@ -1,6 +1,7 @@
 package ktchism.rx
 
 import com.nhaarman.mockitokotlin2.mock
+import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -95,6 +96,36 @@ class RxEitherTest {
         }
 
         flowable.toEither(exceptionMapper)
+            .test()
+            .assertComplete()
+            .assertNoErrors()
+            .assertValue { it is Either.Left<Failure> }
+            .dispose()
+    }
+
+    @Test
+    fun `Completable to Either - if complete - return Right`() {
+        val completable = Completable.complete()
+        val exceptionMapper: (Throwable) -> Failure = {
+            Failure.UnexpectedError
+        }
+
+        completable.toEither(exceptionMapper)
+            .test()
+            .assertComplete()
+            .assertNoErrors()
+            .assertValue { it is Either.Right<Unit> }
+            .dispose()
+    }
+
+    @Test
+    fun `Completable to Either - if failure - return Left`() {
+        val completable = Completable.error(error)
+        val exceptionMapper: (Throwable) -> Failure = {
+            Failure.UnexpectedError
+        }
+
+        completable.toEither(exceptionMapper)
             .test()
             .assertComplete()
             .assertNoErrors()
