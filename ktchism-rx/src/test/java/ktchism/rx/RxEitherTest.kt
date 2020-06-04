@@ -23,9 +23,7 @@ class RxEitherTest {
 
         observable.toEither(exceptionMapper)
             .test()
-            .assertComplete()
-            .assertNoErrors()
-            .assertValue { it is Either.Right<Int> }
+            .successful(predicate = { it is Either.Right<Int> })
             .dispose()
     }
 
@@ -36,9 +34,7 @@ class RxEitherTest {
 
         observable.toEither(exceptionMapper)
             .test()
-            .assertComplete()
-            .assertNoErrors()
-            .assertValue { it is Either.Right<Int> }
+            .successful(predicate = { it is Either.Right<Int> })
             .dispose()
     }
 
@@ -51,9 +47,7 @@ class RxEitherTest {
 
         observable.toEither(exceptionMapper)
             .test()
-            .assertComplete()
-            .assertNoErrors()
-            .assertValue { it is Either.Left<Failure> }
+            .successful(predicate = { it is Either.Left<Failure> })
             .dispose()
     }
 
@@ -64,9 +58,7 @@ class RxEitherTest {
 
         observable.toEither(exceptionMapper)
             .test()
-            .assertComplete()
-            .assertNoErrors()
-            .assertValue { it is Either.Left<Failure> }
+            .successful(predicate = { it is Either.Left<Failure> })
             .dispose()
     }
 
@@ -79,9 +71,7 @@ class RxEitherTest {
 
         single.toEither(exceptionMapper)
             .test()
-            .assertComplete()
-            .assertNoErrors()
-            .assertValue { it is Either.Right<Int> }
+            .successful(predicate = { it is Either.Right<Int> })
             .dispose()
     }
 
@@ -92,9 +82,7 @@ class RxEitherTest {
 
         single.toEither(exceptionMapper)
             .test()
-            .assertComplete()
-            .assertNoErrors()
-            .assertValue { it is Either.Right<Int> }
+            .successful(predicate = { it is Either.Right<Int> })
             .dispose()
     }
 
@@ -107,9 +95,7 @@ class RxEitherTest {
 
         single.toEither(exceptionMapper)
             .test()
-            .assertComplete()
-            .assertNoErrors()
-            .assertValue { it is Either.Left<Failure> }
+            .successful(predicate = { it is Either.Left<Failure> })
             .dispose()
     }
 
@@ -120,9 +106,7 @@ class RxEitherTest {
 
         single.toEither(exceptionMapper)
             .test()
-            .assertComplete()
-            .assertNoErrors()
-            .assertValue { it is Either.Left<Failure> }
+            .successful(predicate = { it is Either.Left<Failure> })
             .dispose()
     }
 
@@ -191,9 +175,7 @@ class RxEitherTest {
 
         completable.toEither(exceptionMapper)
             .test()
-            .assertComplete()
-            .assertNoErrors()
-            .assertValue { it is Either.Right<Unit> }
+            .successful(predicate = { it is Either.Right<Unit> })
             .dispose()
     }
 
@@ -204,9 +186,7 @@ class RxEitherTest {
 
         completable.toEither(exceptionMapper)
             .test()
-            .assertComplete()
-            .assertNoErrors()
-            .assertValue { it is Either.Right<Unit> }
+            .successful(predicate = { it is Either.Right<Unit> })
             .dispose()
     }
 
@@ -219,9 +199,7 @@ class RxEitherTest {
 
         completable.toEither(exceptionMapper)
             .test()
-            .assertComplete()
-            .assertNoErrors()
-            .assertValue { it is Either.Left<Failure> }
+            .successful(predicate = { it is Either.Left<Failure> })
             .dispose()
     }
 
@@ -232,9 +210,7 @@ class RxEitherTest {
 
         completable.toEither(exceptionMapper)
             .test()
-            .assertComplete()
-            .assertNoErrors()
-            .assertValue { it is Either.Left<Failure> }
+            .successful(predicate = { it is Either.Left<Failure> })
             .dispose()
     }
 }
