@@ -3,9 +3,11 @@ apply plugin: 'kotlin'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation deps.kotlinStdLib
+    implementation libraries.kotlinStdLib
+}
 
-    testImplementation deps.jUnit
-    testImplementation deps.mockito
-    testImplementation deps.mockitoKotlin
+dependencies {
+    testImplementation testLibraries.jUnit
+    testImplementation testLibraries.mockito
+    testImplementation testLibraries.mockitoKotlin
 }
