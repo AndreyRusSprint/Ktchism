@@ -1,0 +1,29 @@
+ext {
+    bintrayRepo = 'Maven'
+    bintrayName = POM_BINTRAY_NAME
+
+    publishedGroupId = 'com.absurdpalsy.ktchism'
+    artifactId = POM_ARTIFACT_ID
+    packagingType = POM_PACKAGING
+
+    libraryDescription = POM_DESCRIPTION
+
+    siteUrl = 'https://github.com/AndreyRusSprint/Ktchism'
+    gitUrl = 'https://github.com/AndreyRusSprint/Ktchism.git'
+
+    libraryVersion = POM_VERSION
+
+    developerId = 'absurdpalsy'
+    developerName = 'Andrey Bulgakov'
+    developerEmail = 'andreyrussprint@gmail.com'
+
+    licenseName = 'MIT'
+    licenseUrl = 'https://github.com/AndreyRusSprint/Ktchism/blob/dev/LICENSE'
+    allLicenses = ["MIT"]
+}
+
+// Set up the Android Maven publication.
+apply from: rootProject.file('jcenter/maven-install.gradle')
+
+// Publish on Bintray.
+apply from: rootProject.file('jcenter/bintray.gradle')
