@@ -1,6 +1,7 @@
 # Ktchism
 
 A complex of architectural and auxiliary components for building the better software products.
+
 Inspired by Uncle Bob's Clean Architecture.
 
 ## License
