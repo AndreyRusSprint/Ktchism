@@ -1,5 +1,7 @@
 # Ktchism-core
 
+[ ![Bintray](https://api.bintray.com/packages/absurdpalsy/Maven/ktchism-core/images/download.svg) ](https://bintray.com/absurdpalsy/Maven/ktchism-core/_latestVersion)
+
 The main components of architecture.
 
 ## Use Case
