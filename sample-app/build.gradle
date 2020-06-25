@@ -26,17 +26,21 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation deps.kotlinStdLib
+    implementation libraries.kotlinStdLib
 
+    implementation libraries.rxJava
+}
+
+dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+}
 
-    implementation deps.rxJava
-
-    testImplementation deps.jUnit
-    testImplementation deps.mockito
-    testImplementation deps.mockitoInline
-    testImplementation deps.mockitoKotlin
+dependencies {
+    testImplementation testLibraries.jUnit
+    testImplementation testLibraries.mockito
+    testImplementation testLibraries.mockitoInline
+    testImplementation testLibraries.mockitoKotlin
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 }

@@ -2,15 +2,21 @@ apply plugin: 'java-library'
 apply plugin: 'kotlin'
 
 dependencies {
+    api project(':ktchism-core')
+}
+
+dependencies {
+    api libraries.rxJava
+    api libraries.rxKotlin
+}
+
+dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation deps.kotlinStdLib
+    implementation libraries.kotlinStdLib
+}
 
-    implementation deps.rxJava
-    implementation deps.rxKotlin
-
-    implementation project(':ktchism-core')
-
-    testImplementation deps.jUnit
-    testImplementation deps.mockito
-    testImplementation deps.mockitoKotlin
+dependencies {
+    testImplementation testLibraries.jUnit
+    testImplementation testLibraries.mockito
+    testImplementation testLibraries.mockitoKotlin
 }

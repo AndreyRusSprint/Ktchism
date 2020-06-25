@@ -3,9 +3,13 @@ apply plugin: 'kotlin'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation deps.kotlinStdLib
-
-    testImplementation deps.jUnit
-    testImplementation deps.mockito
-    testImplementation deps.mockitoKotlin
+    implementation libraries.kotlinStdLib
 }
+
+dependencies {
+    testImplementation testLibraries.jUnit
+    testImplementation testLibraries.mockito
+    testImplementation testLibraries.mockitoKotlin
+}
+
+apply from: rootProject.file('release-bintray.gradle')
