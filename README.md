@@ -1,5 +1,7 @@
 # Ktchism
 
+[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
+
 A complex of architectural and auxiliary components for building the better software products.
 
 Inspired by Uncle Bob's Clean Architecture.
