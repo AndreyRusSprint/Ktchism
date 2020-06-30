@@ -1,10 +1,40 @@
 # Ktchism
 
+[ ![Bintray](https://api.bintray.com/packages/absurdpalsy/Maven/ktchism-core/images/download.svg) ](https://bintray.com/absurdpalsy/Maven/ktchism-core/_latestVersion)
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 
 A complex of architectural and auxiliary components for building the better software products.
 
 Inspired by Uncle Bob's Clean Architecture.
+
+## Integration
+
+Replace `ktchismVersion` with the latest version number:
+[ ![Bintray](https://api.bintray.com/packages/absurdpalsy/Maven/ktchism-core/images/download.svg) ](https://bintray.com/absurdpalsy/Maven/ktchism-core/_latestVersion)
+
+### Ktchism-core
+
+[About](https://github.com/AndreyRusSprint/Ktchism/tree/master/ktchism-core)
+
+```groovy
+dependencies {
+    // ...
+    implementation "com.absurdpalsy.ktchism:ktchism-core:$ktchismVersion"
+}
+```
+
+### Ktchism-rx
+
+[About](https://github.com/AndreyRusSprint/Ktchism/tree/master/ktchism-rx)
+
+For reactive extensions of the core module add this:
+
+```groovy
+dependencies {
+    // ...
+    implementation "com.absurdpalsy.ktchism:ktchism-rx:$ktchismVersion"
+}
+```
 
 ## License
 ```
