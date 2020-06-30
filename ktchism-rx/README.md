@@ -1,5 +1,7 @@
 # Ktchism-rx
 
+[ ![Bintray](https://api.bintray.com/packages/absurdpalsy/Maven/ktchism-rx/images/download.svg) ](https://bintray.com/absurdpalsy/Maven/ktchism-rx/_latestVersion)
+
 Reactive extensions for the [Ktchism-core](https://github.com/AndreyRusSprint/Ktchism/tree/dev/ktchism-core).
 
 ## Reactive UseCase
