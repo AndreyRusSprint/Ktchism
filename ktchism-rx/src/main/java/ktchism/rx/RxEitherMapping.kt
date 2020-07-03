@@ -6,7 +6,7 @@ import io.reactivex.Single
 import ktchism.core.functional.*
 
 /**
- * Returns an Observable that emits items based on applying a right-biased Either.flatMap() function,
+ * Returns an Observable<Either> that emits items based on applying a right-biased Either.flatMap() function,
  * the argument of which is the specified function, to each item emitted by the source ObservableSource,
  * where that function returns an Either, and then merging those resulting Either-items and emitting
  * the results of this merger.
@@ -17,9 +17,9 @@ import ktchism.core.functional.*
  * @param fn
  *          a function that, when applied to the right side of Either emitted by the source ObservableSource,
  *          returns an Either.
- * @return an Observable that emits the result of applying the Either.flatMap() function to each item emitted
- *         by the source ObservableSource and merging the results of the Either-items obtained from this
- *         transformation.
+ * @return an Observable<Either> that emits the result of applying the Either.flatMap() function to each item
+ *         emitted by the source ObservableSource and merging the results of the Either-items obtained from
+ *         this transformation.
  * @see Either.flatMap
  */
 fun <T, L, R> Observable<Either<L, R>>.flatMapEither(
@@ -29,8 +29,8 @@ fun <T, L, R> Observable<Either<L, R>>.flatMapEither(
 }
 
 /**
- * Returns a Single that is based on applying a right-biased Either.flatMap() function, the argument of which is the
- * specified function, to the item emitted by the source Single, where that function returns an Either.
+ * Returns a Single<Either> that is based on applying a right-biased Either.flatMap() function, the argument of which
+ * is the specified function, to the item emitted by the source Single, where that function returns an Either.
  *
  * @param T the type of the right side of resulting [Either].
  * @param L the type of the left side of source [Either].
@@ -38,7 +38,7 @@ fun <T, L, R> Observable<Either<L, R>>.flatMapEither(
  * @param fn
  *          a function that, when applied to the right side of Either emitted by the source Single,
  *          returns an Either.
- * @return the Single that emits the result of applying the Either.flatMap() function to the item emitted
+ * @return the Single<Either> that emits the result of applying the Either.flatMap() function to the item emitted
  *         by the source Single.
  * @see Either.flatMap
  */
@@ -49,7 +49,7 @@ fun <T, L, R> Single<Either<L, R>>.flatMapEither(
 }
 
 /**
- * Returns a Flowable that emits items based on applying a right-biased Either.flatMap() function,
+ * Returns a Flowable<Either> that emits items based on applying a right-biased Either.flatMap() function,
  * the argument of which is the specified function, to each item emitted by the source Publisher,
  * where that function returns an Either, and then merging those resulting Either-items and emitting
  * the results of this merger.
@@ -60,8 +60,8 @@ fun <T, L, R> Single<Either<L, R>>.flatMapEither(
  * @param fn
  *          a function that, when applied to the right side of Either emitted by the source Publisher,
  *          returns an Either.
- * @return a Flowable that emits the result of applying the Either.flatMap() function to each item emitted
- *         by the source Publisher and merging the results of the Either-items obtained from this
+ * @return a Flowable<Either> that emits the result of applying the Either.flatMap() function to each item
+ *         emitted by the source Publisher and merging the results of the Either-items obtained from this
  *         transformation.
  * @see Either.flatMap
  */
@@ -72,7 +72,7 @@ fun <T, L, R> Flowable<Either<L, R>>.flatMapEither(
 }
 
 /**
- * Returns an Observable that applies a right-biased Either.map() function, the argument of which
+ * Returns an Observable<Either> that applies a right-biased Either.map() function, the argument of which
  * is the specified function, to each item emitted by the source ObservableSource and emits the results
  * of these function applications.
  *
@@ -82,8 +82,8 @@ fun <T, L, R> Flowable<Either<L, R>>.flatMapEither(
  * @param fn
  *          a function to pass as argument to apply Either.map() function to each item
  *          emitted by the ObservableSource.
- * @return an Observable that emits the items from the source ObservableSource, transformed by the
- *         Either.map() function, the argument of which is the specified function.
+ * @return an Observable<Either> that emits the items from the source ObservableSource, transformed
+ *         by the Either.map() function, the argument of which is the specified function.
  * @see Either.map
  */
 fun <T, L, R> Observable<Either<L, R>>.mapEither(
@@ -93,7 +93,7 @@ fun <T, L, R> Observable<Either<L, R>>.mapEither(
 }
 
 /**
- * Returns a Single that applies a right-biased Either.map() function, the argument of which
+ * Returns a Single<Either> that applies a right-biased Either.map() function, the argument of which
  * is the specified function, to the item emitted by the source Single and emits the result
  * of this function application.
  *
@@ -103,7 +103,7 @@ fun <T, L, R> Observable<Either<L, R>>.mapEither(
  * @param fn
  *          a function to pass as argument to apply Either.map() function to the item
  *          emitted by the Single.
- * @return a Single that emits the item from the source Single, transformed by the
+ * @return a Single<Either> that emits the item from the source Single, transformed by the
  *         Either.map() function, the argument of which is the specified function.
  * @see Either.map
  */
@@ -114,7 +114,7 @@ fun <T, L, R> Single<Either<L, R>>.mapEither(
 }
 
 /**
- * Returns a Flowable that applies a right-biased Either.map() function, the argument of which
+ * Returns a Flowable<Either> that applies a right-biased Either.map() function, the argument of which
  * is the specified function, to each item emitted by the source Publisher and emits the results
  * of these function applications.
  *
@@ -124,7 +124,7 @@ fun <T, L, R> Single<Either<L, R>>.mapEither(
  * @param fn
  *          a function to pass as argument to apply Either.map() function to each item
  *          emitted by the Publisher.
- * @return a Flowable that emits the items from the source Publisher, transformed by the
+ * @return a Flowable<Either> that emits the items from the source Publisher, transformed by the
  *         Either.map() function, the argument of which is the specified function.
  * @see Either.map
  */
@@ -135,7 +135,7 @@ fun <T, L, R> Flowable<Either<L, R>>.mapEither(
 }
 
 /**
- * Returns an Observable that applies a left-biased Either.mapLeft() function, the argument of which
+ * Returns an Observable<Either> that applies a left-biased Either.mapLeft() function, the argument of which
  * is the specified function, to each item emitted by the source ObservableSource and emits the results
  * of these function applications.
  *
@@ -145,7 +145,7 @@ fun <T, L, R> Flowable<Either<L, R>>.mapEither(
  * @param fn
  *          a function to pass as argument to apply Either.mapLeft() function to each item
  *          emitted by the ObservableSource.
- * @return an Observable that emits the items from the source ObservableSource, transformed by the
+ * @return an Observable<Either> that emits the items from the source ObservableSource, transformed by the
  *         Either.mapLeft() function, the argument of which is the specified function.
  * @see Either.mapLeft
  */
@@ -156,7 +156,7 @@ fun <T, L, R> Observable<Either<L, R>>.mapLeftEither(
 }
 
 /**
- * Returns a Single that applies a left-biased Either.mapLeft() function, the argument of which
+ * Returns a Single<Either> that applies a left-biased Either.mapLeft() function, the argument of which
  * is the specified function, to the item emitted by the source Single and emits the result
  * of this function application.
  *
@@ -166,7 +166,7 @@ fun <T, L, R> Observable<Either<L, R>>.mapLeftEither(
  * @param fn
  *          a function to pass as argument to apply Either.mapLeft() function to the item
  *          emitted by the Single.
- * @return a Single that emits the item from the source Single, transformed by the
+ * @return a Single<Either> that emits the item from the source Single, transformed by the
  *         Either.mapLeft() function, the argument of which is the specified function.
  * @see Either.mapLeft
  */
@@ -177,7 +177,7 @@ fun <T, L, R> Single<Either<L, R>>.mapLeftEither(
 }
 
 /**
- * Returns a Flowable that applies a left-biased Either.mapLeft() function, the argument of which
+ * Returns a Flowable<Either> that applies a left-biased Either.mapLeft() function, the argument of which
  * is the specified function, to each item emitted by the source Publisher and emits the results
  * of these function applications.
  *
@@ -187,7 +187,7 @@ fun <T, L, R> Single<Either<L, R>>.mapLeftEither(
  * @param fn
  *          a function to pass as argument to apply Either.mapLeft() function to each item
  *          emitted by the Publisher.
- * @return a Flowable that emits the items from the source Publisher, transformed by the
+ * @return a Flowable<Either> that emits the items from the source Publisher, transformed by the
  *         Either.mapLeft() function, the argument of which is the specified function.
  * @see Either.mapLeft
  */
@@ -198,7 +198,7 @@ fun <T, L, R> Flowable<Either<L, R>>.mapLeftEither(
 }
 
 /**
- * Returns an Observable that applies a Either.bimap() function, the arguments of which
+ * Returns an Observable<Either> that applies a Either.bimap() function, the arguments of which
  * are the specified functions, to each item emitted by the source ObservableSource and emits the results
  * of these function applications.
  *
@@ -212,7 +212,7 @@ fun <T, L, R> Flowable<Either<L, R>>.mapLeftEither(
  * @param fnR
  *          a function to pass as right-biased argument to apply Either.bimap() function to each item
  *          emitted by the ObservableSource.
- * @return an Observable that emits the items from the source ObservableSource, transformed by the
+ * @return an Observable<Either> that emits the items from the source ObservableSource, transformed by the
  *         Either.bimap() function, the arguments of which are the specified functions.
  * @see Either.bimap
  */
@@ -224,7 +224,7 @@ fun <T, E, L, R> Observable<Either<L, R>>.bimapEither(
 }
 
 /**
- * Returns a Single that applies a Either.bimap() function, the arguments of which
+ * Returns a Single<Either> that applies a Either.bimap() function, the arguments of which
  * are the specified functions, to the item emitted by the source Single and emits the result
  * of this function applications.
  *
@@ -238,7 +238,7 @@ fun <T, E, L, R> Observable<Either<L, R>>.bimapEither(
  * @param fnR
  *          a function to pass as right-biased argument to apply Either.bimap() function to the item
  *          emitted by the Single.
- * @return a Single that emits the item from the source Single, transformed by the
+ * @return a Single<Either> that emits the item from the source Single, transformed by the
  *         Either.bimap() function, the arguments of which are the specified functions.
  * @see Either.bimap
  */
@@ -250,7 +250,7 @@ fun <T, E, L, R> Single<Either<L, R>>.bimapEither(
 }
 
 /**
- * Returns a Flowable that applies a Either.bimap() function, the arguments of which
+ * Returns a Flowable<Either> that applies a Either.bimap() function, the arguments of which
  * are the specified functions, to each item emitted by the source Publisher and emits the results
  * of these function applications.
  *
@@ -264,7 +264,7 @@ fun <T, E, L, R> Single<Either<L, R>>.bimapEither(
  * @param fnR
  *          a function to pass as right-biased argument to apply Either.bimap() function to each item
  *          emitted by the Publisher.
- * @return a Flowable that emits the items from the source Publisher, transformed by the
+ * @return a Flowable<Either> that emits the items from the source Publisher, transformed by the
  *         Either.bimap() function, the arguments of which are the specified functions.
  * @see Either.bimap
  */
