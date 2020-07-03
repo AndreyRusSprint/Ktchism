@@ -6,6 +6,70 @@ import io.reactivex.Single
 import ktchism.core.functional.*
 
 /**
+ * Returns an Observable<Either> that emits items based on applying a function that you supply to each item emitted
+ * by the source ObservableSource, where that function returns an ObservableSource<Either>, and then merging those
+ * resulting ObservableSources and emitting the results of this merger.
+ *
+ * @param T the type of the right side of resulting [Either].
+ * @param L the type of the left side of source [Either].
+ * @param R the type of the right side of source [Either].
+ * @param fn
+ *          a function that, when applied to the right side of Either emitted by the source ObservableSource,
+ *          returns an ObservableSource<Either>.
+ * @return an Observable<Either> that emits the result of applying the transformation function to each item emitted
+ *         by the source ObservableSource<Either> and merging the results of the ObservableSources obtained from
+ *         this transformation.
+ * @see Observable.flatMap
+ */
+fun <T, L, R> Observable<Either<L, R>>.flatMapRight(
+    fn: (R) -> Observable<Either<L, T>>
+): Observable<Either<L, T>> = this.flatMap { item ->
+    item.fold({ Observable.just(Either.left(it)) }, { fn(it) })
+}
+
+/**
+ * Returns a Single<Either> that is based on applying a specified function to the item emitted by the source Single,
+ * where that function returns a SingleSource<Either>.
+ *
+ * @param T the type of the right side of resulting [Either].
+ * @param L the type of the left side of source [Either].
+ * @param R the type of the right side of source [Either].
+ * @param fn
+ *          a function that, when applied to the right side of Either emitted by the source Single,
+ *          returns a SingleSource<Either>.
+ * @return the Single<Either> returned from [fn] when applied to the right side of Either emitted by the
+ *         source Single.
+ * @see Single.flatMap
+ */
+fun <T, L, R> Single<Either<L, R>>.flatMapRight(
+    fn: (R) -> Single<Either<L, T>>
+): Single<Either<L, T>> = this.flatMap { item ->
+    item.fold({ Single.just(Either.left(it)) }, { fn(it) })
+}
+
+/**
+ * Returns a Flowable<Either> that emits items based on applying a function that you supply to each item emitted
+ * by the source Publisher, where that function returns a Publisher, and then merging those resulting
+ * Publishers and emitting the results of this merger.
+ *
+ * @param T the type of the right side of resulting [Either].
+ * @param L the type of the left side of source [Either].
+ * @param R the type of the right side of source [Either].
+ * @param fn
+ *          a function that, when applied to the right side of Either emitted by the source Publisher,
+ *          returns a Publisher<Either>.
+ * @return a Flowable<Either> that emits the result of applying the transformation function to each item
+ *         emitted by the source Publisher and merging the results of the Publishers obtained from this
+ *         transformation.
+ * @see Flowable.flatMap
+ */
+fun <T, L, R> Flowable<Either<L, R>>.flatMapRight(
+    fn: (R) -> Flowable<Either<L, T>>
+): Flowable<Either<L, T>> = this.flatMap { item ->
+    item.fold({ Flowable.just(Either.left(it)) }, { fn(it) })
+}
+
+/**
  * Returns an Observable<Either> that emits items based on applying a right-biased Either.flatMap() function,
  * the argument of which is the specified function, to each item emitted by the source ObservableSource,
  * where that function returns an Either, and then merging those resulting Either-items and emitting
