@@ -9,6 +9,54 @@ import org.junit.Test
 class RxEitherMappingTest {
 
     @Test
+    fun `Observable (with Either) flatMapRight - return new ObservableSource`() {
+        val sourceObservable: Observable<Either<String, Int>> = Observable.just(
+            Either.right(5),
+            Either.left("Some error")
+        )
+
+        val fn: (Int) -> Observable<Either<String, String>> = {
+            Observable.just(Either.right(it.toString()))
+        }
+
+        sourceObservable.flatMapRight(fn)
+            .test()
+            .assertValues(Either.right("5"), Either.left("Some error"))
+            .dispose()
+    }
+
+    @Test
+    fun `Single (with Either) flatMapRight - return new SingleSource`() {
+        val sourceSingle: Single<Either<String, Int>> = Single.just(Either.right(5))
+
+        val fn: (Int) -> Single<Either<String, String>> = {
+            Single.just(Either.right(it.toString()))
+        }
+
+        sourceSingle.flatMapRight(fn)
+            .test()
+            .assertValue(Either.right("5"))
+            .dispose()
+    }
+
+    @Test
+    fun `Flowable (with Either) flatMapRight - return new Publisher`() {
+        val flowable: Flowable<Either<String, Int>> = Flowable.just(
+            Either.right(5),
+            Either.left("Error")
+        )
+
+        val fn: (Int) -> Flowable<Either<String, String>> = {
+            Flowable.just(Either.right(it.toString()))
+        }
+
+        flowable.flatMapRight(fn)
+            .test()
+            .assertValues(Either.right("5"), Either.left("Error"))
+            .dispose()
+    }
+
+    @Test
     fun `Observable flatMapEither - flatMap value`() {
         val either: Either<String, Int> = Either.right(5)
         val observable = Observable.just(either)
