@@ -10,9 +10,10 @@ Inspired by Uncle Bob's Clean Architecture.
 ## Integration
 
 Replace `ktchismVersion` with the latest version number:
-[ ![Bintray](https://api.bintray.com/packages/absurdpalsy/Maven/ktchism-core/images/download.svg) ](https://bintray.com/absurdpalsy/Maven/ktchism-core/_latestVersion)
 
 ### Ktchism-core
+
+[ ![Bintray](https://api.bintray.com/packages/absurdpalsy/Maven/ktchism-core/images/download.svg) ](https://bintray.com/absurdpalsy/Maven/ktchism-core/_latestVersion)
 
 [About](https://github.com/AndreyRusSprint/Ktchism/tree/master/ktchism-core)
 
@@ -24,6 +25,8 @@ dependencies {
 ```
 
 ### Ktchism-rx
+
+[ ![Bintray](https://api.bintray.com/packages/absurdpalsy/Maven/ktchism-rx/images/download.svg) ](https://bintray.com/absurdpalsy/Maven/ktchism-rx/_latestVersion)
 
 [About](https://github.com/AndreyRusSprint/Ktchism/tree/master/ktchism-rx)
 
