@@ -12,4 +12,4 @@ dependencies {
     testImplementation testLibraries.mockitoKotlin
 }
 
-//apply from: rootProject.file('release-bintray.gradle')
+apply from: rootProject.file('release-bintray.gradle')
