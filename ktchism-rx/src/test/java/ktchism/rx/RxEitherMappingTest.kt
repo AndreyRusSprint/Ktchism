@@ -292,4 +292,166 @@ class RxEitherMappingTest {
             .assertValue(expectedValue)
             .dispose()
     }
+
+    @Test
+    fun `Observable ignoreRight - if Left - return it`() {
+        val either: Either<Int, String> = Either.left(5)
+        val observable = Observable.just(either)
+
+        val expectedValue = Either.Left(5)
+
+        observable.ignoreRight()
+            .test()
+            .assertValue(expectedValue)
+            .dispose()
+    }
+
+    @Test
+    fun `Observable ignoreRight - if Right - return Unit`() {
+        val either: Either<Int, String> = Either.right("5")
+        val observable = Observable.just(either)
+
+        val expectedValue = Either.right(Unit)
+
+        observable.ignoreRight()
+            .test()
+            .assertValue(expectedValue)
+            .dispose()
+    }
+
+    @Test
+    fun `Single ignoreRight - if Left - return it`() {
+        val either: Either<Int, String> = Either.left(5)
+        val single = Single.just(either)
+
+        val expectedValue = Either.Left(5)
+
+        single.ignoreRight()
+            .test()
+            .assertValue(expectedValue)
+            .dispose()
+    }
+
+    @Test
+    fun `Single ignoreRight - if Right - return Unit`() {
+        val either: Either<Int, String> = Either.right("5")
+        val single = Single.just(either)
+
+        val expectedValue = Either.right(Unit)
+
+        single.ignoreRight()
+            .test()
+            .assertValue(expectedValue)
+            .dispose()
+    }
+
+    @Test
+    fun `Flowable ignoreRight - if Left - return it`() {
+        val either: Either<Int, String> = Either.left(5)
+        val flowable = Flowable.just(either)
+
+        val expectedValue = Either.Left(5)
+
+        flowable.ignoreRight()
+            .test()
+            .assertValue(expectedValue)
+            .dispose()
+    }
+
+    @Test
+    fun `Flowable ignoreRight - if Right - return Unit`() {
+        val either: Either<Int, String> = Either.right("5")
+        val flowable = Flowable.just(either)
+
+        val expectedValue = Either.right(Unit)
+
+        flowable.ignoreRight()
+            .test()
+            .assertValue(expectedValue)
+            .dispose()
+    }
+
+    @Test
+    fun `Observable onFailureReturn - if Left - return Right`() {
+        val either: Either<Int, String> = Either.left(5)
+        val observable = Observable.just(either)
+
+        val fn: (Int) -> String = { it.toString() }
+        val expectedValue = Either.right("5")
+
+        observable.onFailureReturn(fn)
+            .test()
+            .assertValue(expectedValue)
+            .dispose()
+    }
+
+    @Test
+    fun `Observable onFailureReturn - if Right - return it`() {
+        val either: Either<Int, String> = Either.right("3")
+        val observable = Observable.just(either)
+
+        val fn: (Int) -> String = { it.toString() }
+        val expectedValue = Either.right("3")
+
+        observable.onFailureReturn(fn)
+            .test()
+            .assertValue(expectedValue)
+            .dispose()
+    }
+
+    @Test
+    fun `Single onFailureReturn - if Left - return Right`() {
+        val either: Either<Int, String> = Either.left(5)
+        val single = Single.just(either)
+
+        val fn: (Int) -> String = { it.toString() }
+        val expectedValue = Either.right("5")
+
+        single.onFailureReturn(fn)
+            .test()
+            .assertValue(expectedValue)
+            .dispose()
+    }
+
+    @Test
+    fun `Single onFailureReturn - if Right - return it`() {
+        val either: Either<Int, String> = Either.right("3")
+        val single = Single.just(either)
+
+        val fn: (Int) -> String = { it.toString() }
+        val expectedValue = Either.right("3")
+
+        single.onFailureReturn(fn)
+            .test()
+            .assertValue(expectedValue)
+            .dispose()
+    }
+
+    @Test
+    fun `Flowable onFailureReturn - if Left - return Right`() {
+        val either: Either<Int, String> = Either.left(5)
+        val flowable = Flowable.just(either)
+
+        val fn: (Int) -> String = { it.toString() }
+        val expectedValue = Either.right("5")
+
+        flowable.onFailureReturn(fn)
+            .test()
+            .assertValue(expectedValue)
+            .dispose()
+    }
+
+    @Test
+    fun `Flowable onFailureReturn - if Right - return it`() {
+        val either: Either<Int, String> = Either.right("3")
+        val flowable = Flowable.just(either)
+
+        val fn: (Int) -> String = { it.toString() }
+        val expectedValue = Either.right("3")
+
+        flowable.onFailureReturn(fn)
+            .test()
+            .assertValue(expectedValue)
+            .dispose()
+    }
 }
