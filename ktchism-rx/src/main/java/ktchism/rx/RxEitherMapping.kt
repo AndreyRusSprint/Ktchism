@@ -338,3 +338,27 @@ fun <T, E, L, R> Flowable<Either<L, R>>.bimapEither(
 ): Flowable<Either<E, T>> = this.map {
     it.bimap(fnL, fnR)
 }
+
+/**
+ * Ignores all right items emitted by the source ObservableSource and returns [Unit] instead.
+ *
+ * @return an Observable<Either<L, Unit>>
+ */
+fun <L, R> Observable<Either<L, R>>.ignoreRight(): Observable<Either<L, Unit>> =
+    this.mapEither { Unit }
+
+/**
+ * Ignores the right value of this [Single] and returns [Unit] instead.
+ *
+ * @return a Single<Either<Left, Unit>>
+ */
+fun <L, R> Single<Either<L, R>>.ignoreRight(): Single<Either<L, Unit>> =
+    this.mapEither { Unit }
+
+/**
+ * Ignores all right items emitted by the source Publisher and returns [Unit] instead.
+ *
+ * @return a Flowable<Either<L, Unit>>
+ */
+fun <L, R> Flowable<Either<L, R>>.ignoreRight(): Flowable<Either<L, Unit>> =
+    this.mapEither { Unit }
