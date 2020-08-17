@@ -362,3 +362,33 @@ fun <L, R> Single<Either<L, R>>.ignoreRight(): Single<Either<L, Unit>> =
  */
 fun <L, R> Flowable<Either<L, R>>.ignoreRight(): Flowable<Either<L, Unit>> =
     this.mapEither { Unit }
+
+fun <L, R> Observable<Either<L, R>>.onFailureReturn(
+    fn: (L) -> R
+): Observable<Either<L, R>> = this.map { result ->
+    if (result is Either.Left<L>) {
+        Either.right(fn(result.value))
+    } else {
+        result
+    }
+}
+
+fun <L, R> Single<Either<L, R>>.onFailureReturn(
+    fn: (L) -> R
+): Single<Either<L, R>> = this.map { result ->
+    if (result is Either.Left<L>) {
+        Either.right(fn(result.value))
+    } else {
+        result
+    }
+}
+
+fun <L, R> Flowable<Either<L, R>>.onFailureReturn(
+    fn: (L) -> R
+): Flowable<Either<L, R>> = this.map { result ->
+    if (result is Either.Left<L>) {
+        Either.right(fn(result.value))
+    } else {
+        result
+    }
+}
